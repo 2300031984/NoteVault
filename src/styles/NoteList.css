@@ -1,0 +1,19 @@
+/* styles/NoteList.css */
+.note-list h2 {
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 400;
+}
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.note-list-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: #666;
+  font-size: 18px;
+}
