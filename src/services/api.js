@@ -38,6 +38,8 @@ api.interceptors.response.use(
       window.location.href = '/login';
     } else if (error.response?.status === 403) {
       console.log('Access denied - check user permissions');
+    } else if (error.code === 'ECONNREFUSED' || error.code === 'ERR_NETWORK') {
+      console.log('Backend server is not running. Please start the backend server.');
     }
     return Promise.reject(error);
   }

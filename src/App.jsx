@@ -8,22 +8,24 @@ import Dashboard from './components/Dashboard';
 import './styles/App.css';
 
 const ProtectedRoute = ({ children }) => {
-  const { token } = useAuth();
+  const { token, loading } = useAuth();
+  if (loading) return <div className="loading">Loading...</div>;
   return token ? children : <Navigate to="/login" />;
 };
 
 const PublicRoute = ({ children }) => {
-  const { token } = useAuth();
+  const { token, loading } = useAuth();
+  if (loading) return <div className="loading">Loading...</div>;
   return !token ? children : <Navigate to="/dashboard" />;
 };
 
 function App() {
   return (
     <AuthProvider>
-      <Router>
+      <Router basename="/">
         <div className="App">
           <Routes>
-            <Route path="/" element={<Navigate to="/dashboard" />} />
+            <Route path="/" element={<Navigate to="/login" />} />
             <Route 
               path="/login" 
               element={
