@@ -22,7 +22,7 @@ const PublicRoute = ({ children }) => {
 function App() {
   return (
     <AuthProvider>
-      <Router basename="/">
+      <Router basename="/NoteVault">
         <div className="App">
           <Routes>
             <Route path="/" element={<Navigate to="/login" />} />
